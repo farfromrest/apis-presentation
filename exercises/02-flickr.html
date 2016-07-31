@@ -45,8 +45,12 @@
         '&sort=interestingness-desc' +
         '&tags=boston+terrier'
     }).done(function(data) {
-
+      console.log(data);
+      if (!data.photos) {
+        return;
+      }
       $.each(data.photos.photo, function(key, photo) {
+
         photoUrl = 'https://farm' +
           photo.farm +
           '.staticflickr.com/' +

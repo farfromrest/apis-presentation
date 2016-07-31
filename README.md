@@ -2,10 +2,10 @@
 Presentation and resources by Derek Fons.
 
 ## Code Pens
-* [Numbers](https://codepen.io/farfromrest/pen/yJqpGB)
-* [Flickr](https://codepen.io/farfromrest/pen/grjvJY)
-* [Foursquare](https://codepen.io/farfromrest/pen/QEBmQq)
-* [Chat App](https://codepen.io/farfromrest/pen/grjQwp)
+* [Numbers](http://codepen.io/farfromrest/pen/yJqpGB?editors=1011#0)
+* [Flickr](http://codepen.io/farfromrest/pen/grjvJY?editors=1011#0)
+* [Foursquare](http://codepen.io/farfromrest/pen/QEBmQq?editors=1011#0)
+* [Chat App](http://codepen.io/farfromrest/pen/grjQwp?editors=1011#0)
 
 ## APIs Used
 * [Chuck Norris Jokes](http://www.icndb.com/api/)

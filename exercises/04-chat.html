@@ -31,12 +31,11 @@ $('.fetch-button').click(function() {
     data: {
       message: $('#message').val()
     }
-  }).done(function(data) {
-    $('.output').html(data.status);
-  }).fail(function(data) {
-    $('.output').html(data.status);
   }).always(function(data) {
-    $button.text('Fetch Data'); // Reset button text
+    console.log(data);
+    $('.output').html(data.status);
+    $('#message').val('');
+    $button.text('Post Message'); // Reset button text
     $button.removeAttr('disabled'); // Enable button to be clicked again
   });
 });

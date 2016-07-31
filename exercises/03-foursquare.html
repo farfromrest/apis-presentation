@@ -1,0 +1,75 @@
+<html>
+<head>
+  <title>Foursquare</title>
+  <link rel="stylesheet" href="../basic.css">
+</head>
+<body>
+
+<div class="wrapper">
+  <h1>Foursquare API</h1>
+  <div class="output">
+  </div>
+
+  <button class="fetch-button">Fetch Data</button>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  /*
+  Register an App:
+  https://foursquare.com/developers
+
+  Explore Documentation:
+  https://developer.foursquare.com/docs/venues/explore
+
+  Venue Documentation:
+  https://developer.foursquare.com/docs/responses/venue
+  */
+
+  var clientId = 'WUDGJHYCFGOPHVJACEFWSF0YZP4EAVTCYIQSTRWQQOCABTB2';
+  var clientSecret = '0GBMVUKV21L5AZLKLSPIEQWVUWVL2P1ZUN2YCVSSK4YTDT3Q';
+  var version = '20160730';
+
+  $('.fetch-button').click(function() {
+    var $button = $(this);
+    $button.text('Loading...'); // Set text of button to loading
+    $button.attr('disabled', 'disabled'); // Disable button
+    $('.output').empty(); // Clear out output
+
+    $.ajax({
+      method: 'GET',
+      url: 'https://api.foursquare.com/v2/venues/explore' +
+        '?client_id=' + clientId +
+        '&client_secret=' + clientSecret +
+        '&v=' + version +
+        '&near=Austin,Tx'
+    }).done(function(data) {
+
+      $.each(data.response.groups[0].items, function(key, item) {
+        console.log(item);
+        $('.output').append(
+          '<div class="item">' +
+            '<a href="' + item.venue.link + '" target="_blank">' +
+              '<div class="title">' + item.venue.name + '</div>' +
+              '<div class="address">' +
+                item.venue.location.formattedAddress[0] +
+                item.venue.location.formattedAddress[1] +
+                item.venue.location.formattedAddress[2] +
+              '</div>' +
+            '</a>' +
+          '</div>'
+        );
+      });
+
+    }).fail(function(data) {
+      $('.output').html(data);
+    }).always(function(data) {
+      $button.text('Fetch Data'); // Reset button text
+      $button.removeAttr('disabled'); // Enable button to be clicked again
+    });
+  });
+</script>
+</body>
+</html>

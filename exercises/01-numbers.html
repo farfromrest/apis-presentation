@@ -1,0 +1,41 @@
+<html>
+<head>
+  <title>Numbers API</title>
+  <link rel="stylesheet" href="../basic.css">
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Numbers API</h1>
+    <div class="output">
+    </div>
+
+    <button class="fetch-button">Fetch Data</button>
+  </div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+/*
+
+http://numbersapi.com
+
+*/
+
+$('.fetch-button').click(function() {
+  var $button = $(this);
+
+  $button.text('Loading...'); // Set text of button to loading
+  $button.attr('disabled', 'disabled'); // Disable button
+  $('.output').empty(); // Clear out results
+
+  $.ajax({
+    method: 'GET',
+    url: 'http://numbersapi.com/2/24/date'
+  }).done(function(data) {
+    $('.output').append(data);
+  }).always(function() {
+    $button.text('Fetch Data'); // Reset button text
+    $button.removeAttr('disabled'); // Enable button to be clicked again
+  });
+});
+</script>
+</body>
+</html>

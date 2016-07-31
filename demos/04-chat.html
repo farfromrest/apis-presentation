@@ -1,0 +1,43 @@
+<html>
+<head>
+  <title>Chat API</title>
+  <link rel="stylesheet" href="../basic.css">
+</head>
+<body>
+
+<div class="wrapper">
+  <h1>Chat API</h1>
+  <div class="output">
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+  var fetchMessages = function() {
+    $('.output').empty(); // Clear out output
+
+    $.ajax({
+      method: 'GET',
+      url: 'http://localhost:9292/messages'
+    }).done(function(data) {
+
+      $.each(data, function(key, message) {
+        console.log(message);
+        $('.output').append(
+          '<div class="item">' +
+            '<div class="message">' + message.message + '</div>' +
+            '<div class="posted_by">Posted by <strong>' + message.name + '</strong> on ' + message.created_on + '</div>' +
+          '</div>'
+        );
+      });
+      setTimeout(fetchMessages, 2000);
+    }).fail(function(data) {
+      $('.output').html(data);
+    });
+  };
+  fetchMessages();
+</script>
+</body>
+</html>

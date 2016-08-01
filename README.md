@@ -21,7 +21,7 @@ Javascript library that was used for all AJAX calls.
 Social web browser based editor for front end dev.
 
 ### [Chat API](https://github.com/farfromrest/ga-chat-api)
-Source code for the Sinatra chat api. 
+Source code for the Sinatra chat api.
 
 ## Additional Resources
 ### [ProgrammableWeb](http://www.programmableweb.com/)
@@ -32,3 +32,6 @@ A collective list of public JSON APIs for use in web development.
 
 ### [Postman](https://www.getpostman.com/)
 Tool for working with APIs.
+
+### [HTTP Status Cats](https://www.flickr.com/photos/girliemac/sets/72157628409467125/)
+Self explanatory. 

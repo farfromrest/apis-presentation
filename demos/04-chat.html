@@ -17,21 +17,22 @@
   var messages = [];
 
   var fetchMessages = function() {
-    $('.output').empty(); // Clear out output
 
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:9292/messages'
+      url: 'http://ga-chat-api.herokuapp.com/messages'
     }).done(function(data) {
 
       $.each(data, function(key, message) {
         console.log(message);
-        $('.output').append(
-          '<div class="item">' +
-            '<div class="message">' + message.message + '</div>' +
-            '<div class="posted_by">Posted by <strong>' + message.name + '</strong> on ' + message.created_on + '</div>' +
-          '</div>'
-        );
+        if ($('#message-' + message.id).length === 0) {
+          $('.output').prepend(
+            '<div class="item" id="message-' + message.id + '">' +
+              '<div class="message">' + message.message + '</div>' +
+              '<div class="posted_by">Posted by <strong>' + message.name + '</strong> on ' + message.created_at + '</div>' +
+            '</div>'
+          );
+        }
       });
       setTimeout(fetchMessages, 2000);
     }).fail(function(data) {

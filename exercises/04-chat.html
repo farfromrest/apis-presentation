@@ -27,8 +27,9 @@ $('.fetch-button').click(function() {
 
   $.ajax({
     method: 'POST',
-    url: 'http://localhost:9292/messages',
+    url: 'http://ga-chat-api.herokuapp.com/messages',
     data: {
+      name: 'Derek',
       message: $('#message').val()
     }
   }).always(function(data) {

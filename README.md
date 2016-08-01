@@ -20,7 +20,15 @@ Javascript library that was used for all AJAX calls.
 ### [Codepen](http://codepen.io/)
 Social web browser based editor for front end dev.
 
-### [Sinatra](http://www.sinatrarb.com/)
-Ruby http framework for the chat api.
+### [Chat API](https://github.com/farfromrest/ga-chat-api)
+Source code for the Sinatra chat api. 
 
 ## Additional Resources
+### [ProgrammableWeb](http://www.programmableweb.com/)
+API resources and directory.
+
+### [Public API List](https://github.com/toddmotto/public-apis)
+A collective list of public JSON APIs for use in web development.
+
+### [Postman](https://www.getpostman.com/)
+Tool for working with APIs.
